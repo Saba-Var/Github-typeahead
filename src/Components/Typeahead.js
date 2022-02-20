@@ -15,6 +15,7 @@ const Typeahead = (props) => {
         <input
           type="text"
           placeholder="username"
+          spellcheck="false"
           onChange={inputHandler}
           className={`${input !== "" && styles["bottom_corners"]}`}
         />

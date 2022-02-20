@@ -5,7 +5,6 @@ const Users = (props) => {
   const [usersData, setUsersData] = useState([]);
   const [found, setFound] = useState(true);
   const username = props.user.toLowerCase().trim();
-
   useEffect(() => {
     let timer = setTimeout(() => {
       if (username !== "") {
@@ -16,15 +15,15 @@ const Users = (props) => {
           const data = await response.json();
           if (response.status === 200) {
             setUsersData(
-              data.items.filter((item) =>
-                item.login.toLowerCase().includes(username)
+              data.items.filter(
+                (item) =>
+                  item.login.toLowerCase().includes(username) &&
+                  item.login[0].toLowerCase() === username[0]
               )
             );
             setFound(true);
           }
-          if (data.total_count === 0) {
-            setFound(false);
-          }
+          if (data.total_count === 0) setFound(false);
         }
         fetchGithubAPI();
       }
