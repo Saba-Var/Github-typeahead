@@ -14,6 +14,7 @@ const Users = (props) => {
           );
           const data = await response.json();
           if (response.status === 200) {
+            setFound(true);
             setUsersData(
               data.items.filter(
                 (item) =>
@@ -21,7 +22,6 @@ const Users = (props) => {
                   item.login[0].toLowerCase() === username[0]
               )
             );
-            setFound(true);
           }
           if (data.total_count === 0) setFound(false);
         }
@@ -29,6 +29,10 @@ const Users = (props) => {
       }
     }, 1000);
 
+    //if user removes input data 'user not found' will hide
+    if (username === "") {
+      setFound(true);
+    }
     return () => {
       clearTimeout(timer);
     };
@@ -36,7 +40,7 @@ const Users = (props) => {
 
   return (
     <>
-      {username !== "" && found && (
+      {username !== "" && found && props.usersListVisibility && (
         <ul className={styles.filtered__users}>
           {usersData.map((data) => {
             return (
