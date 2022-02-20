@@ -14,9 +14,10 @@ const Users = (props) => {
             `https://api.github.com/search/users?q=${username}`
           );
           const data = await response.json();
-
           if (response.status === 200) {
-            setUsersData(data.items);
+            setUsersData(
+              data.items.filter((item) => item.login.includes(username))
+            );
             setFound(true);
           }
           if (data.total_count === 0) {
