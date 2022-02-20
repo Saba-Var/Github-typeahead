@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const Users = (props) => {
   const [usersData, setUsersData] = useState([]);
   const [found, setFound] = useState(true);
-  const username = props.user;
+  const username = props.user.toLowerCase().trim();
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -16,7 +16,9 @@ const Users = (props) => {
           const data = await response.json();
           if (response.status === 200) {
             setUsersData(
-              data.items.filter((item) => item.login.includes(username))
+              data.items.filter((item) =>
+                item.login.toLowerCase().includes(username)
+              )
             );
             setFound(true);
           }
@@ -36,22 +38,22 @@ const Users = (props) => {
   return (
     <>
       {username !== "" && found && (
-        <div className={styles.filtered__users}>
+        <ul className={styles.filtered__users}>
           {usersData.map((data) => {
             return (
-              <div className={styles.user} key={data.login}>
+              <li className={styles.user} key={data.login}>
                 <a href={data.html_url} target="_blank" rel="noreferrer">
                   <p>{data.login}</p>
                   <img src={data.avatar_url} alt={"Avatar of user"} />
                 </a>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
       {!found && (
         <div className={styles["not_found__container"]}>
-          <p className={styles["not_found"]}>user nor found</p>
+          <p className={styles["not_found"]}>User not found</p>
         </div>
       )}
     </>

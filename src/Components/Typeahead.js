@@ -10,12 +10,17 @@ const Typeahead = (props) => {
   };
 
   return (
-    <div className={styles.search}>
-      <div className={styles.input}>
-        <input type="text" placeholder="username" onChange={inputHandler} />
+    <form>
+      <div className={styles.search}>
+        <input
+          type="text"
+          placeholder="username"
+          onChange={inputHandler}
+          className={`${input !== "" && styles["bottom_corners"]}`}
+        />
         <Users user={input} />
       </div>
-    </div>
+    </form>
   );
 };
 
