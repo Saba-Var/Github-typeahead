@@ -1,12 +1,12 @@
-import styles from "./Users.module.css";
 import { useState, useEffect } from "react";
-
+import UsersList from "./UsersList";
+import NotFound from "./NotFound";
 const Users = (props) => {
   const [usersData, setUsersData] = useState([]);
   const [found, setFound] = useState(true);
   const username = props.user.toLowerCase().trim();
   useEffect(() => {
-    let timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       if (username !== "") {
         async function fetchGithubAPI() {
           const response = await fetch(
@@ -28,11 +28,7 @@ const Users = (props) => {
         fetchGithubAPI();
       }
     }, 1000);
-
-    //if user removes input data 'user not found' will hide
-    if (username === "") {
-      setFound(true);
-    }
+    if (username === "") setFound(true);
     return () => {
       clearTimeout(timer);
     };
@@ -41,24 +37,9 @@ const Users = (props) => {
   return (
     <>
       {username !== "" && found && props.usersListVisibility && (
-        <ul className={styles.filtered__users}>
-          {usersData.map((data) => {
-            return (
-              <li className={styles.user} key={data.login}>
-                <a href={data.html_url} target="_blank" rel="noreferrer">
-                  <p>{data.login}</p>
-                  <img src={data.avatar_url} alt={"Avatar of user"} />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <UsersList usersData={usersData} />
       )}
-      {!found && (
-        <div className={styles["not_found__container"]}>
-          <p className={styles["not_found"]}>User not found</p>
-        </div>
-      )}
+      {!found && <NotFound />}
     </>
   );
 };

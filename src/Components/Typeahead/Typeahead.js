@@ -1,7 +1,7 @@
 import styles from "./Typeahead.module.css";
-import Users from "./Users/Users";
+import Users from "../Users/Users";
 import { useState } from "react";
-import Overlay from "./Overlay/Overlay";
+import Overlay from "../Overlay/Overlay";
 
 const Typeahead = (props) => {
   const [input, setInput] = useState("");
@@ -14,7 +14,6 @@ const Typeahead = (props) => {
     setUsersList(true);
     logoVisibility(true);
   };
-  // setUsersList(false);
   const inputLeaveHandler = () => {
     logoVisibility(false);
   };

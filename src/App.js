@@ -1,4 +1,4 @@
-import Typeahead from "./Components/Typeahead";
+import Typeahead from "./Components/Typeahead/Typeahead";
 import styles from "./App.module.css";
 import logo from "./assets/svg logo.svg";
 import { useState } from "react";
