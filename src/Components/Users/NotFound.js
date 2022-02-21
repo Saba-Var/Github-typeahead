@@ -1,5 +1,4 @@
-import styles from "./Users.module.css";
-
+import styles from "./NotFound.module.css";
 const NotFound = (props) => {
   return (
     <div className={styles["not_found__container"]}>

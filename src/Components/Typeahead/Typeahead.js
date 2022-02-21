@@ -17,10 +17,13 @@ const Typeahead = (props) => {
   const inputLeaveHandler = () => {
     logoVisibility(false);
   };
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       <Overlay setUsersList={setUsersList} />
-      <form>
+      <form onSubmit={submitHandler}>
         <div className={styles.search}>
           <input
             type="text"
