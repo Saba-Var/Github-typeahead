@@ -6,10 +6,10 @@ const UsersList = (props) => {
   return (
     <ul
       className={`${styles.filtered__users} ${
-        listLength === 2 && styles["user__length2"]
-      } ${listLength === 3 && styles["user__length3"]} ${
         listLength === 1 && styles["user__length1"]
-      }`}
+      } ${listLength === 2 && styles["user__length2"]} ${
+        listLength === 3 && styles["user__length3"]
+      } ${listLength === 4 && styles["user__length4"]}`}
     >
       {props.usersData.map((data) => {
         return (

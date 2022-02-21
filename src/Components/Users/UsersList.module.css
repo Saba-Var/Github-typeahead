@@ -2,7 +2,7 @@
   font-size: 1.5rem;
   background-color: rgba(33, 38, 45, 0.3);
   width: 60rem;
-  height: 27rem;
+  height: 45.4rem;
   margin: 0 auto;
   overflow: hidden;
   overflow-y: auto;
@@ -13,16 +13,21 @@
   border-radius: 10px;
   z-index: 1;
 }
+.user__length1 {
+  overflow-y: hidden;
+  height: 9.2rem;
+}
 .user__length2 {
   overflow-y: hidden;
   height: 18.4rem;
 }
 .user__length3 {
   overflow-y: hidden;
+  height: 27.6rem;
 }
-.user__length1 {
+.user__length4 {
   overflow-y: hidden;
-  height: 9.2rem;
+  height: 36.8rem;
 }
 .user {
   padding: 1rem 1.5rem;
