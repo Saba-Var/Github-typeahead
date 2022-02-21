@@ -16,7 +16,8 @@ const InputField = (props) => {
   return (
     <input
       type="text"
-      placeholder="username"
+      value={props.input}
+      placeholder="Enter a Github username"
       spellCheck="false"
       onChange={inputHandler}
       className={`${props.input !== "" && styles["bottom_corners"]}`}

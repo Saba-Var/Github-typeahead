@@ -10,6 +10,10 @@ const Typeahead = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
   };
+  const clickHandler = () => {
+    setInput("");
+    document.querySelector("input").focus();
+  };
   return (
     <>
       <Overlay setUsersList={setUsersList} />
@@ -22,14 +26,17 @@ const Typeahead = (props) => {
               setInput={setInput}
               input={input}
             />
-            <div className={styles["img__container"]}>
-              <img
-                src={closeSVG}
-                className={styles["close__svg"]}
-                alt="close icon"
-                draggable="false"
-              />
-            </div>
+            {input !== "" && (
+              <div className={styles["img__container"]}>
+                <img
+                  onClick={clickHandler}
+                  src={closeSVG}
+                  className={styles["close__svg"]}
+                  alt="close icon"
+                  draggable="false"
+                />
+              </div>
+            )}
           </div>
         </div>
         <Users user={input} usersListVisibility={usersList} />
