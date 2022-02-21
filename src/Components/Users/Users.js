@@ -28,7 +28,11 @@ const Users = (props) => {
         fetchGithubAPI();
       }
     }, 1000);
-    if (username === "") setFound(true);
+    if (username === "") {
+      setFound(true);
+      setUsersData([]);
+    }
+
     return () => {
       clearTimeout(timer);
     };

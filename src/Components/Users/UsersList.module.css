@@ -2,7 +2,7 @@
   font-size: 1.5rem;
   background-color: rgba(33, 38, 45, 0.3);
   width: 60rem;
-  height: 45.4rem;
+  opacity: 0;
   margin: 0 auto;
   overflow: hidden;
   overflow-y: auto;
@@ -13,25 +13,32 @@
   border-radius: 10px;
   z-index: 1;
 }
-.user__length1 {
+.user__length1,
+.user__length2,
+.user__length3,
+.user__length4,
+.user__length5,
+.user__length__other {
+  opacity: 1;
   overflow-y: hidden;
+}
+.user__length1 {
   height: 9.2rem;
 }
 .user__length2 {
-  overflow-y: hidden;
   height: 18.4rem;
 }
 .user__length3 {
-  overflow-y: hidden;
   height: 27.6rem;
 }
 .user__length4 {
-  overflow-y: hidden;
   height: 36.8rem;
 }
 .user__length5 {
-  overflow-y: hidden;
   height: 46rem;
+}
+.user__length__other {
+  height: 45.4rem;
 }
 .user {
   padding: 1rem 1.5rem;
