@@ -12,6 +12,7 @@ const InputField = (props) => {
   const inputLeaveHandler = () => {
     logoVisibility(false);
   };
+
   return (
     <input
       type="text"
