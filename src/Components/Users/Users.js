@@ -37,7 +37,7 @@ const Users = (props) => {
   return (
     <>
       {username !== "" && found && props.usersListVisibility && (
-        <UsersList usersData={usersData} />
+        <UsersList usersData={usersData} usersCount={usersData} />
       )}
       {!found && <NotFound />}
     </>
