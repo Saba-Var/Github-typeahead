@@ -15,7 +15,7 @@ const Typeahead = (props) => {
     document.querySelector("input").focus();
   };
   return (
-    <>
+    <div>
       <Overlay setUsersList={setUsersList} />
       <form onSubmit={submitHandler}>
         <div className={styles.container}>
@@ -41,7 +41,7 @@ const Typeahead = (props) => {
         </div>
         <Users user={input} usersListVisibility={usersList} />
       </form>
-    </>
+    </div>
   );
 };
 
