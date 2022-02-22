@@ -39,6 +39,7 @@
 }
 .user__length__other {
   height: 45.4rem;
+  overflow-y: auto;
 }
 .user {
   padding: 1rem 1.5rem;

@@ -22,6 +22,11 @@ const Users = (props) => {
                   item.login[0].toLowerCase() === username[0]
               )
             );
+            data.items.forEach((element) => {
+              !element.login.toLowerCase().includes(username)
+                ? setFound(false)
+                : setFound(true);
+            });
           }
           if (data.total_count === 0) setFound(false);
         }
