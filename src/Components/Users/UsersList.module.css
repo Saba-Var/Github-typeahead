@@ -11,7 +11,7 @@
   gap: 2px;
   border: 2px solid#30363d;
   border-radius: 10px;
-  z-index: 1;
+  z-index: 10;
 }
 .user__length1,
 .user__length2,
@@ -45,6 +45,7 @@
   padding: 1rem 1.5rem;
   box-shadow: 0px 0px 0px 2px #30363d54;
   background-color: rgba(33, 38, 45, 0.7);
+  z-index: 9999;
 }
 .user:hover {
   background-color: #1f6feb;

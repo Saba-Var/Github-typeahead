@@ -13,7 +13,7 @@ const Users = (props) => {
             `https://api.github.com/search/users?q=${username}`
           );
           const data = await response.json();
-          if (response.status === 200) {
+          if (response.ok === true) {
             setFound(true);
             setUsersData(
               data.items.filter(
@@ -22,11 +22,7 @@ const Users = (props) => {
                   item.login[0].toLowerCase() === username[0]
               )
             );
-            data.items.forEach((element) => {
-              !element.login.toLowerCase().includes(username)
-                ? setFound(false)
-                : setFound(true);
-            });
+            if (username.includes(" ")) setFound(false);
           }
           if (data.total_count === 0) setFound(false);
         }
