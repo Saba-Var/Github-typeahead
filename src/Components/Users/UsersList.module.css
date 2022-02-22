@@ -38,7 +38,7 @@
   height: 46rem;
 }
 .user__length__other {
-  height: 45.4rem;
+  height: 46rem;
   overflow-y: auto;
 }
 .user {
@@ -99,6 +99,27 @@ p {
 
   .user {
     padding: 0.5rem 1rem;
+  }
+
+  .user__length1 {
+    height: 6rem;
+  }
+  .user__length2 {
+    height: 12.5rem;
+  }
+  .user__length3 {
+    height: 18.8rem;
+  }
+  .user__length4 {
+    height: 25rem;
+  }
+  .user__length5 {
+    height: 31rem;
+  }
+
+  .user__length__other {
+    height: 31rem;
+    overflow-y: auto;
   }
 }
 
