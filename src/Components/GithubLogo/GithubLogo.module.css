@@ -15,10 +15,22 @@
   user-select: none;
 }
 .increase__opacity {
-  opacity: 0.25;
+  opacity: 0.3;
   transition: all 1.5s;
 }
 .decrease__opacity {
   opacity: 0.08;
   transition: all 1.5s;
+}
+
+@media (max-width: 1000px) {
+  .logo {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 750px) {
+  .logo {
+    max-width: 100%;
+  }
 }

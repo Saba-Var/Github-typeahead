@@ -12,7 +12,35 @@
 }
 .not_found {
   font-size: 2.5rem;
-  color: #f0f6fca8;
+  color: #f0f6fce3;
   text-align: center;
   z-index: 10;
+}
+
+@media (max-width: 700px) {
+  .not_found__container {
+    width: 50rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .not_found__container {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .not_found__container {
+    width: 35rem;
+  }
+
+  .not_found {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .not_found__container {
+    width: 27rem;
+  }
 }

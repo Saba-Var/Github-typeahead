@@ -67,3 +67,43 @@ p {
   font-size: 2.5rem;
   color: #f0f6fc;
 }
+
+@media (max-width: 700px) {
+  .filtered__users {
+    max-width: 50rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .filtered__users {
+    max-width: 40rem;
+  }
+
+  p {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .filtered__users {
+    max-width: 35rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  img {
+    height: 5rem;
+  }
+
+  .user {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .filtered__users {
+    max-width: 27rem;
+  }
+}
