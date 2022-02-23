@@ -9,15 +9,8 @@ const Users = (props) => {
     const timer = setTimeout(() => {
       if (username !== "") {
         async function fetchGithubAPI() {
-          const token = "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";
           const response = await fetch(
-            `https://api.github.com/search/users?q=${username}`,
-            {
-              method: "get",
-              headers: new Headers({
-                Authorization: "Basic " + token,
-              }),
-            }
+            `https://api.github.com/search/users?q=${username}`
           );
 
           const data = await response.json();
