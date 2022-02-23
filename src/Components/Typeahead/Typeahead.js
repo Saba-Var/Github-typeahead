@@ -13,6 +13,7 @@ const Typeahead = (props) => {
   const clickHandler = () => {
     setInput("");
     document.querySelector("input").focus();
+    props.setLogoVisibility(true);
   };
   return (
     <div>
@@ -21,7 +22,7 @@ const Typeahead = (props) => {
         <div className={styles.container}>
           <div className={styles.search}>
             <InputField
-              logoVisibility={props.setLogoVisibility}
+              setlogoVisibility={props.setLogoVisibility}
               setUsersList={setUsersList}
               setInput={setInput}
               input={input}

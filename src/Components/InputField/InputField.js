@@ -1,16 +1,16 @@
 import styles from "./InputField.module.css";
 
 const InputField = (props) => {
-  const logoVisibility = props.logoVisibility;
+  const setlogoVisibility = props.setlogoVisibility;
   const inputHandler = (e) => {
     props.setInput(e.target.value);
   };
   const usersListVisibility = () => {
     props.setUsersList(true);
-    logoVisibility(true);
+    setlogoVisibility(true);
   };
   const inputLeaveHandler = () => {
-    logoVisibility(false);
+    setlogoVisibility(false);
   };
 
   return (
