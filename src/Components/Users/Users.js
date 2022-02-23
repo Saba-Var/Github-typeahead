@@ -9,9 +9,18 @@ const Users = (props) => {
     const timer = setTimeout(() => {
       if (username !== "") {
         async function fetchGithubAPI() {
+          const API_KEY = process.env.REACT_APP_API_KEY;
+          console.log(API_KEY);
           const response = await fetch(
-            `https://api.github.com/search/users?q=${username}`
+            `https://api.github.com/search/users?q=${username}`,
+            {
+              method: "get",
+              headers: new Headers({
+                Authorization: `token ${API_KEY}`,
+              }),
+            }
           );
+
           const data = await response.json();
           if (response.ok === true) {
             setFound(true);
