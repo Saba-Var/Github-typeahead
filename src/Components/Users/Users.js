@@ -15,7 +15,7 @@ const Users = (props) => {
             {
               method: "get",
               headers: new Headers({
-                Authorization: `token ${token}`,
+                Authorization: "Basic " + token,
               }),
             }
           );
