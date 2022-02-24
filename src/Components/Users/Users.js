@@ -9,10 +9,16 @@ const Users = (props) => {
     const timer = setTimeout(() => {
       if (username !== "") {
         async function fetchGithubAPI() {
+          const token = "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";
           const response = await fetch(
-            `https://api.github.com/search/users?q=${username}`
+            `https://api.github.com/search/users?q=${username}`,
+            {
+              method: "get",
+              headers: new Headers({
+                Authorization: `token ${token}`,
+              }),
+            }
           );
-
           const data = await response.json();
           if (response.ok === true) {
             setFound(true);
@@ -25,7 +31,7 @@ const Users = (props) => {
             );
             if (username.includes(" ")) setFound(false);
           }
-          if (data.total_count === 0) setFound(false);
+          data.total_count === 0 && setFound(false);
         }
         fetchGithubAPI();
       }
