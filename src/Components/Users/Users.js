@@ -4,10 +4,12 @@ import NotFound from "./NotFound";
 const Users = (props) => {
   const [usersData, setUsersData] = useState([]);
   const [found, setFound] = useState(true);
+
   const username = props.user.toLowerCase().trim();
   useEffect(() => {
     const timer = setTimeout(() => {
       if (username !== "") {
+        props.setLoading(true);
         async function fetchGithubAPI() {
           const response = await fetch(
             `https://api.github.com/search/users?q=${username}`
@@ -24,11 +26,12 @@ const Users = (props) => {
             );
             if (username.includes(" ")) setFound(false);
           }
+          props.setLoading(false);
           data.total_count === 0 && setFound(false);
         }
         fetchGithubAPI();
       }
-    }, 1000);
+    }, 2000);
     if (username === "") {
       setFound(true);
       setUsersData([]);
@@ -42,7 +45,11 @@ const Users = (props) => {
   return (
     <>
       {username !== "" && found && props.usersListVisibility && (
-        <UsersList usersData={usersData} usersCount={usersData} />
+        <UsersList
+          usersData={usersData}
+          usersCount={usersData}
+          loading={props.loading}
+        />
       )}
       {!found && <NotFound />}
     </>

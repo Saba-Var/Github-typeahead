@@ -79,6 +79,14 @@ input:focus {
   background-color: rgba(33, 38, 45, 0.7);
 }
 
+.spinner {
+  width: 10px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -143,6 +151,10 @@ input:focus {
     font-size: 2rem;
   }
 
+  .label {
+    font-size: 3rem;
+  }
+
   input::placeholder {
     font-size: 1.8rem;
   }
@@ -155,7 +167,7 @@ input:focus {
   .img__container {
     padding: 1rem;
     transform: translateY(5%);
-    top: 5.7rem;
+    top: 5rem;
   }
 
   ::-webkit-scrollbar {

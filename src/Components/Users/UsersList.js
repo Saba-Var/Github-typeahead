@@ -11,18 +11,22 @@ const UsersList = (props) => {
   } ${listLength > 5 && styles["user__length__other"]}`;
 
   return (
-    <ul className={listStyle}>
-      {props.usersData.map((data) => {
-        return (
-          <li className={styles.user} key={data.login}>
-            <a href={data.html_url} target="_blank" rel="noreferrer">
-              <p>{data.login}</p>
-              <img src={data.avatar_url} alt={"Avatar of user"} />
-            </a>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      {!props.loading && (
+        <ul className={listStyle}>
+          {props.usersData.map((data) => {
+            return (
+              <li className={styles.user} key={data.login}>
+                <a href={data.html_url} target="_blank" rel="noreferrer">
+                  <p>{data.login}</p>
+                  <img src={data.avatar_url} alt={"Avatar of user"} />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
   );
 };
 

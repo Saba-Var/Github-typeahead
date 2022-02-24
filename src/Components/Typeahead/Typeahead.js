@@ -4,9 +4,13 @@ import { useState } from "react";
 import Overlay from "../Overlay/Overlay";
 import InputField from "../InputField/InputField";
 import closeSVG from "../../assets/close_svg.svg";
+import spinner from "../../assets/Rolling-1s-200px.svg";
+
 const Typeahead = (props) => {
   const [input, setInput] = useState("");
   const [usersList, setUsersList] = useState(true);
+  const [loading, setLoading] = useState(false);
+
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -28,6 +32,11 @@ const Typeahead = (props) => {
               setInput={setInput}
               input={input}
             />
+            {loading && (
+              <div className={styles.spinner}>
+                <img src={spinner} alt="spinner" />
+              </div>
+            )}
             {input !== "" && (
               <div className={styles["img__container"]}>
                 <img
@@ -41,7 +50,12 @@ const Typeahead = (props) => {
             )}
           </div>
         </div>
-        <Users user={input} usersListVisibility={usersList} />
+        <Users
+          user={input}
+          usersListVisibility={usersList}
+          setLoading={setLoading}
+          loading={loading}
+        />
       </form>
     </div>
   );
