@@ -1,11 +1,12 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 15rem;
+  margin-top: 10rem;
 }
 .search {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: fit-content;
 }
@@ -15,7 +16,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -4px;
+  top: 5.35rem;
   right: 5px;
   z-index: 101;
   transform: translateY(10%);
@@ -42,6 +43,13 @@
   cursor: pointer;
   z-index: 100;
   border-radius: 100px;
+}
+.label {
+  color: #f0f6fc;
+  margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 input {
@@ -97,7 +105,7 @@ input:focus {
 
 @media (max-width: 1000px) {
   .container {
-    margin-top: 8rem;
+    margin-top: 2rem;
   }
 }
 
@@ -110,7 +118,7 @@ input:focus {
 
 @media (max-width: 550px) {
   .container {
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
 
   input {
@@ -120,7 +128,7 @@ input:focus {
   }
 
   .img__container {
-    top: -0.9rem;
+    top: 4.8rem;
   }
 
   input::placeholder {
@@ -139,10 +147,6 @@ input:focus {
     font-size: 1.8rem;
   }
 
-  .img__container {
-    top: -0.9rem;
-  }
-
   .close__svg {
     width: 2rem;
     height: 2rem;
@@ -151,12 +155,22 @@ input:focus {
   .img__container {
     padding: 1rem;
     transform: translateY(5%);
-    top: -0.01rem;
+    top: 5.7rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
   }
 }
 
 @media (max-width: 350px) {
+  .label {
+    font-size: 2.5rem;
+  }
   input {
     width: 27rem;
+  }
+  .img__container {
+    top: 4.5rem;
   }
 }

@@ -21,6 +21,7 @@ const Typeahead = (props) => {
       <form onSubmit={submitHandler}>
         <div className={styles.container}>
           <div className={styles.search}>
+            <label className={styles.label}>Search a Github User</label>
             <InputField
               setlogoVisibility={props.setLogoVisibility}
               setUsersList={setUsersList}
