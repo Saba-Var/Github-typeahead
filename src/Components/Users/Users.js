@@ -1,39 +1,48 @@
 import { useState, useEffect } from "react";
 import UsersList from "./UsersList";
 import NotFound from "./NotFound";
+import Error from "../Error/Error";
+
 const Users = (props) => {
   const [usersData, setUsersData] = useState([]);
-  const [found, setFound] = useState(true);
-
+  const [hasError, setError] = useState(false);
   const username = props.user.toLowerCase().trim();
   useEffect(() => {
     const timer = setTimeout(() => {
       if (username !== "") {
-        props.setLoading(true);
         async function fetchGithubAPI() {
-          const response = await fetch(
-            `https://api.github.com/search/users?q=${username}`
-          );
-          const data = await response.json();
-          if (response.ok === true) {
-            setFound(true);
-            setUsersData(
-              data.items.filter(
-                (item) =>
-                  item.login.toLowerCase().includes(username) &&
-                  item.login[0].toLowerCase() === username[0]
-              )
+          try {
+            const response = await fetch(
+              `https://api.github.com/search/users?q=${username}`
             );
-            if (username.includes(" ")) setFound(false);
+            if (response.status === 403) throw new Error("403");
+            const data = await response.json();
+            if (response.ok === true) {
+              setError(false);
+              props.setFound(true);
+              setUsersData(
+                data.items.filter(
+                  (item) =>
+                    item.login.toLowerCase().includes(username) &&
+                    item.login[0].toLowerCase() === username[0]
+                )
+              );
+              if (username.includes(" ")) props.setFound(false);
+            }
+            props.setLoading(false);
+            data.total_count === 0 && props.setFound(false);
+          } catch (error) {
+            if (error) {
+              props.setLoading(false);
+              setError(true);
+            }
           }
-          props.setLoading(false);
-          data.total_count === 0 && setFound(false);
         }
         fetchGithubAPI();
       }
-    }, 2000);
+    }, 1000);
     if (username === "") {
-      setFound(true);
+      props.setFound(true);
       setUsersData([]);
     }
 
@@ -44,14 +53,18 @@ const Users = (props) => {
 
   return (
     <>
-      {username !== "" && found && props.usersListVisibility && (
-        <UsersList
-          usersData={usersData}
-          usersCount={usersData}
-          loading={props.loading}
-        />
-      )}
-      {!found && <NotFound />}
+      {username !== "" &&
+        props.found &&
+        !hasError &&
+        props.usersListVisibility && (
+          <UsersList
+            usersData={usersData}
+            usersCount={usersData}
+            loading={props.loading}
+          />
+        )}
+      {!props.found && !hasError && <NotFound />}
+      {hasError && <Error />}
     </>
   );
 };

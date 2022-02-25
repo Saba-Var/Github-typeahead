@@ -10,7 +10,7 @@ const Typeahead = (props) => {
   const [input, setInput] = useState("");
   const [usersList, setUsersList] = useState(true);
   const [loading, setLoading] = useState(false);
-
+  const [found, setFound] = useState(true);
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -31,12 +31,10 @@ const Typeahead = (props) => {
               setUsersList={setUsersList}
               setInput={setInput}
               input={input}
+              setLoading={setLoading}
+              found={found}
             />
-            {loading && (
-              <div className={styles.spinner}>
-                <img src={spinner} alt="spinner" />
-              </div>
-            )}
+
             {input !== "" && (
               <div className={styles["img__container"]}>
                 <img
@@ -55,7 +53,14 @@ const Typeahead = (props) => {
           usersListVisibility={usersList}
           setLoading={setLoading}
           loading={loading}
+          found={found}
+          setFound={setFound}
         />
+        {loading && input !== "" && (
+          <div className={styles.spinner}>
+            <img src={spinner} alt="spinner" />
+          </div>
+        )}
       </form>
     </div>
   );

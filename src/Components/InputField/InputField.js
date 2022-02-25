@@ -4,10 +4,13 @@ const InputField = (props) => {
   const setlogoVisibility = props.setlogoVisibility;
   const inputHandler = (e) => {
     props.setInput(e.target.value);
+    if (props.found) {
+      props.setLoading(true);
+    }
   };
   const usersListVisibility = () => {
-    props.setUsersList(true);
     setlogoVisibility(true);
+    props.setUsersList(true);
   };
   const inputLeaveHandler = () => {
     setlogoVisibility(false);
