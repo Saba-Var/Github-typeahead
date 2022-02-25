@@ -22,7 +22,6 @@ const Users = (props) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log(token);
       if (username !== "") {
         async function fetchGithubAPI() {
           try {
@@ -60,7 +59,7 @@ const Users = (props) => {
         }
         fetchGithubAPI();
       }
-    }, 1);
+    }, 500);
     if (username === "") {
       props.setFound(true);
       setUsersData([]);

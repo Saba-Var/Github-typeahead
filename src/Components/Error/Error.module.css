@@ -46,4 +46,7 @@
   .error_message__container {
     width: 27rem;
   }
+  .error_message {
+    font-size: 1rem;
+  }
 }
