@@ -1,6 +1,6 @@
 .filtered__users {
   font-size: 1.5rem;
-  background-color: rgba(33, 38, 45, 0.3);
+  background-color: rgba(33, 38, 45, 0.55);
   width: 60rem;
   opacity: 0;
   margin: 0 auto;
@@ -12,11 +12,12 @@
   border: 2px solid#30363d;
   border-radius: 10px;
   z-index: 10;
-  z-index: 99999 !important;
+  z-index: 99999;
+  transition: all 0.4s;
 }
 .filtered__users::-webkit-scrollbar {
   width: 10px;
-  z-index: 99999 !important;
+  z-index: 99999;
 }
 
 .filtered__users::-webkit-scrollbar-track {
@@ -59,6 +60,15 @@
 .user__length__other {
   height: 46rem;
   overflow-y: auto;
+}
+.decrease_opacity {
+  filter: blur(1.2px);
+  opacity: 0.9;
+  transition: all 0.4s;
+}
+.normal_opacity {
+  filter: blur(0px);
+  transition: all 0.4s;
 }
 .user {
   padding: 1rem 1.5rem;
