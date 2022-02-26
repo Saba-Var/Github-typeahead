@@ -59,7 +59,7 @@ const Users = (props) => {
         }
         fetchGithubAPI();
       }
-    }, 500);
+    }, 400);
     if (username === "") {
       props.setFound(true);
       setUsersData([]);

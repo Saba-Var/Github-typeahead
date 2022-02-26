@@ -9,11 +9,11 @@
 html {
   font-size: 62.5%;
 }
+
 ::-moz-selection {
-  /* Code for Firefox */
   background-color: rgba(13, 17, 23, 0.7);
 }
 
 ::selection {
-  background-color: rgba(13, 17, 23, 0.7);
+  background-color: #343a40;
 }

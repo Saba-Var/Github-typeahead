@@ -17,6 +17,7 @@ const Typeahead = (props) => {
     setInput("");
     document.querySelector("input").focus();
     props.setLogoVisibility(true);
+    setUsersList(true);
   };
   return (
     <div>
