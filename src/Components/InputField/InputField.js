@@ -12,8 +12,11 @@ const InputField = (props) => {
     setlogoVisibility(true);
     props.setUsersList(true);
   };
-  const inputLeaveHandler = () => {
-    setlogoVisibility(false);
+  const inputLeaveHandler = (e) => {
+    if (e.nativeEvent.relatedTarget === null) {
+      setlogoVisibility(false);
+      props.setUsersList(false);
+    }
   };
 
   return (
