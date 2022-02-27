@@ -61,15 +61,7 @@
   height: 46rem;
   overflow-y: auto;
 }
-.decrease_opacity {
-  filter: blur(1.2px);
-  opacity: 0.9;
-  transition: all 0.4s;
-}
-.normal_opacity {
-  filter: blur(0px);
-  transition: all 0.4s;
-}
+
 .user {
   padding: 1rem 1.5rem;
   box-shadow: 0px 0px 0px 2px #30363d54;
@@ -95,6 +87,7 @@ img {
 p {
   font-size: 2.5rem;
   color: #f0f6fc;
+  font-weight: 300;
 }
 
 @media (max-width: 700px) {

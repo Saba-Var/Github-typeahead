@@ -19,6 +19,7 @@ const Typeahead = (props) => {
     props.setLogoVisibility(true);
     setUsersList(true);
   };
+
   return (
     <div>
       <form onSubmit={submitHandler}>

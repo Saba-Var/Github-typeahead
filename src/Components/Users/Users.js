@@ -59,7 +59,7 @@ const Users = (props) => {
         }
         fetchGithubAPI();
       }
-    }, 400);
+    }, 300);
     if (username === "") {
       props.setFound(true);
       setUsersData([]);
@@ -80,9 +80,11 @@ const Users = (props) => {
             usersData={usersData}
             usersCount={usersData}
             loading={props.loading}
+            username={username}
+            setLoading={props.setLoading}
           />
         )}
-      {!props.found && !hasError && <NotFound />}
+      {!props.found && !hasError && <NotFound username={username} />}
       {hasError && <Error />}
     </>
   );
