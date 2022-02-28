@@ -79,9 +79,7 @@ const Users = (props) => {
           <UsersList
             usersData={usersData}
             usersCount={usersData}
-            loading={props.loading}
             username={username}
-            setLoading={props.setLoading}
           />
         )}
       {!props.found && !hasError && <NotFound username={username} />}

@@ -20,8 +20,8 @@ const UsersList = (props) => {
             <li className={styles.user} key={data.login}>
               <a href={data.html_url} target="_blank" rel="noreferrer">
                 <p>
-                  <b>{data.login.slice(0, username.length)}</b>
-                  {data.login.slice(username.length, data.login.length)}
+                  {data.login.slice(0, username.length)}
+                  <b>{data.login.slice(username.length, data.login.length)}</b>
                 </p>
                 <img src={data.avatar_url} alt={"Avatar of user"} />
               </a>

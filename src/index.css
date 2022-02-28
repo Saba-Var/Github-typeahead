@@ -11,7 +11,7 @@ html {
 }
 
 ::-moz-selection {
-  background-color: rgba(13, 17, 23, 0.7);
+  background-color: #343a40;
 }
 
 ::selection {

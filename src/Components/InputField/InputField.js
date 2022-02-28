@@ -26,7 +26,9 @@ const InputField = (props) => {
       placeholder="username..."
       spellCheck="false"
       onChange={inputHandler}
-      className={`${props.input !== "" && styles["bottom_corners"]}`}
+      className={`${props.input !== "" && styles["bottom_corners"]} ${
+        styles.input
+      }`}
       onClick={usersListVisibility}
       onBlur={inputLeaveHandler}
     />

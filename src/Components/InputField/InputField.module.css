@@ -5,3 +5,11 @@
   border-bottom-left-radius: 10px;
   border-bottom: none;
 }
+.input {
+  padding-right: 6rem;
+}
+@media (max-width: 450px) {
+  .input {
+    padding-right: 4.5rem;
+  }
+}
