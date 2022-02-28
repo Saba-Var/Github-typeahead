@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
-import styles from "./Cursor.module.css";
+import "./Cursor.css";
 const Cursor = () => {
-  const delay = 15;
+  const delay = 10;
   const dot = useRef(null);
   const dotOutline = useRef(null);
   const cursorVisibility = useRef(true);
@@ -70,12 +70,21 @@ const Cursor = () => {
   };
 
   const mouseMoveEvent = (e) => {
+    const dotOutline = document.querySelector(".cursor-dot-outline");
     cursorVisibility.current = true;
     toggleCursorVisibility();
     X.current = e.pageX;
     Y.current = e.pageY;
     dot.current.style.top = Y.current + "px";
     dot.current.style.left = X.current + "px";
+    if (e.target.id === "label") {
+      dotOutline.style.backgroundColor = "white";
+      dotOutline.style.mixBlendMode = "difference";
+      document.querySelector(".cursor-dot").style.opacity = "0";
+    } else {
+      dotOutline.style.backgroundColor = "rgba(165, 159, 159, 0.678)";
+      dotOutline.style.mixBlendMode = "normal";
+    }
   };
 
   const animateDotOutline = () => {
@@ -88,8 +97,8 @@ const Cursor = () => {
 
   return (
     <>
-      <div ref={dotOutline} className={styles["cursor-dot-outline"]}></div>
-      <div ref={dot} className={styles["cursor-dot"]}></div>
+      <div ref={dotOutline} className={"cursor-dot-outline"}></div>
+      <div ref={dot} className={"cursor-dot"}></div>
     </>
   );
 };
