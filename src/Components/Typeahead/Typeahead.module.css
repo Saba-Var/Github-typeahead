@@ -54,7 +54,6 @@ form {
   font-size: 3rem;
   background: none;
   border: none;
-  cursor: pointer;
   z-index: 100;
   border-radius: 100px;
 }

@@ -70,7 +70,6 @@
 }
 .user:hover {
   background-color: #1f6feb;
-  cursor: pointer;
 }
 a {
   text-decoration: none;

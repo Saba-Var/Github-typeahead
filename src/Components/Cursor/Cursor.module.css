@@ -1,0 +1,24 @@
+.cursor-dot-outline,
+.cursor-dot {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 9999999999999;
+}
+
+.cursor-dot {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: white;
+}
+
+.cursor-dot-outline {
+  width: 5rem;
+  height: 5rem;
+  background-color: rgba(175, 175, 175, 0.63);
+}
