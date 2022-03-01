@@ -23,7 +23,7 @@
   z-index: 999999999999;
   width: 5rem;
   height: 5rem;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color width 0.3s ease-in-out;
 }
 h1 {
   color: white;

@@ -21,6 +21,7 @@ const InputField = (props) => {
 
   return (
     <input
+      id="input"
       type="text"
       value={props.input}
       placeholder="username..."
@@ -31,6 +32,7 @@ const InputField = (props) => {
       }`}
       onClick={usersListVisibility}
       onBlur={inputLeaveHandler}
+      autoComplete="off"
     />
   );
 };

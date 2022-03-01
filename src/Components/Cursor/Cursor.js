@@ -90,8 +90,11 @@ const Cursor = () => {
   const animateDotOutline = () => {
     _x.current += (X.current - _x.current) / delay;
     _y.current += (Y.current - _y.current) / delay;
-    dotOutline.current.style.top = _y.current + "px";
-    dotOutline.current.style.left = _x.current + "px";
+    if (dotOutline.current !== null) {
+      dotOutline.current.style.top = _y.current + "px";
+      dotOutline.current.style.left = _x.current + "px";
+    }
+
     requestRef.current = requestAnimationFrame(animateDotOutline);
   };
 

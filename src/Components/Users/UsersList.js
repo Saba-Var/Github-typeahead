@@ -14,7 +14,7 @@ const UsersList = (props) => {
 
   useEffect(() => {
     setBoldTExt(
-      <ul className={listStyle}>
+      <ul className={listStyle} id="ul">
         {props.usersData.map((data) => {
           return (
             <li className={styles.user} key={data.login}>

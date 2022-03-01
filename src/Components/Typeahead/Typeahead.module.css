@@ -56,6 +56,7 @@ form {
   border: none;
   z-index: 100;
   border-radius: 100px;
+  cursor: inherit;
 }
 .label {
   color: #f0f6fc;
