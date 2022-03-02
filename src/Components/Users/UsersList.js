@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./UsersList.module.css";
 const UsersList = (props) => {
   const [list, setList] = useState("");

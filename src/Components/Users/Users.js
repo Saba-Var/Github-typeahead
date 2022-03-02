@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 const UsersList = React.lazy(() => import("./UsersList"));
 const Error = React.lazy(() => import("../Error/Error"));
 const NotFound = React.lazy(() => import("./NotFound"));
