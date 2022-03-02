@@ -1,5 +1,5 @@
-import styles from "./UsersList.module.css";
 import { useEffect, useState } from "react";
+import styles from "./UsersList.module.css";
 const UsersList = (props) => {
   const [boldText, setBoldTExt] = useState("");
   const username = props.username;
