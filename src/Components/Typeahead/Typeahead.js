@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React from "react";
+import { useState, useCallback } from "react";
+import GithubLogo from "../GithubLogo/GithubLogo";
 import InputField from "../InputField/InputField";
 import closeSVG from "../../assets/close_svg.svg";
 import spinner from "../../assets/Rolling-1s-200px.svg";
@@ -6,6 +8,7 @@ import styles from "./Typeahead.module.css";
 import Users from "../Users/Users";
 
 const Typeahead = (props) => {
+  const [logoVisibility, setLogoVisibility] = useState(false);
   const [input, setInput] = useState("");
   const [usersList, setUsersList] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -13,14 +16,16 @@ const Typeahead = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
   };
-  const clickHandler = () => {
+  const clickHandler = useCallback(() => {
     setInput("");
     document.querySelector("input").focus();
-    props.setLogoVisibility(true);
+    setLogoVisibility(true);
     setUsersList(true);
-  };
+  }, []);
+
   return (
     <div>
+      <GithubLogo logoVisibility={logoVisibility} />
       <form onSubmit={submitHandler}>
         <div className={styles.container}>
           <div className={styles.search}>
@@ -28,7 +33,7 @@ const Typeahead = (props) => {
               Search a Github User
             </label>
             <InputField
-              setlogoVisibility={props.setLogoVisibility}
+              setlogoVisibility={setLogoVisibility}
               setUsersList={setUsersList}
               setInput={setInput}
               input={input}
@@ -67,4 +72,4 @@ const Typeahead = (props) => {
   );
 };
 
-export default Typeahead;
+export default React.memo(Typeahead);

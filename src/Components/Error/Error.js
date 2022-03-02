@@ -1,5 +1,6 @@
 import styles from "./Error.module.css";
-const Error = (props) => {
+const Error = () => {
+  console.log("error");
   return (
     <div className={styles["error_message__container"]}>
       <p className={styles["error_message"]}>

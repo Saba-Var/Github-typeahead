@@ -1,17 +1,14 @@
 import { useEffect, useState, useLayoutEffect } from "react";
-import GithubLogo from "./Components/GithubLogo/GithubLogo";
 import Typeahead from "./Components/Typeahead/Typeahead";
 import Cursor from "./Components/Cursor/Cursor";
 import Card from "./Components/Card/Card";
 
 function App() {
-  const [logoVisibility, setLogoVisibility] = useState(false);
   const [innerWidth, setInnerWidth] = useState([0]);
-
   useLayoutEffect(() => {
-    function updateSize() {
+    const updateSize = () => {
       setInnerWidth([window.innerWidth]);
-    }
+    };
     window.addEventListener("resize", updateSize);
     updateSize();
     return () => window.removeEventListener("resize", updateSize);
@@ -28,8 +25,7 @@ function App() {
 
   return (
     <Card>
-      <GithubLogo logoVisibility={logoVisibility} />
-      <Typeahead setLogoVisibility={setLogoVisibility} />
+      <Typeahead />
       {window.innerWidth > 800 && <Cursor />}
     </Card>
   );

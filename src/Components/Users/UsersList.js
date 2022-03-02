@@ -1,7 +1,8 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import styles from "./UsersList.module.css";
 const UsersList = (props) => {
-  const [boldText, setBoldTExt] = useState("");
+  const [list, setList] = useState("");
   const username = props.username;
   const listLength = props.usersCount.length;
   const listStyle = `${styles.filtered__users} ${
@@ -13,7 +14,7 @@ const UsersList = (props) => {
   } ${listLength > 5 && styles["user__length__other"]}`;
 
   useEffect(() => {
-    setBoldTExt(
+    setList(
       <ul className={listStyle} id="ul">
         {props.usersData.map((data) => {
           return (
@@ -32,7 +33,7 @@ const UsersList = (props) => {
     );
   }, [props.usersData]);
 
-  return <>{boldText}</>;
+  return <>{list}</>;
 };
 
-export default UsersList;
+export default React.memo(UsersList);

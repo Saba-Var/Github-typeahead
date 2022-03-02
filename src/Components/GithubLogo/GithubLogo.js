@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./GithubLogo.module.css";
 import logo from "../../assets/svg logo.svg";
 
@@ -12,4 +13,4 @@ const GithubLogo = (props) => {
     />
   );
 };
-export default GithubLogo;
+export default React.memo(GithubLogo);

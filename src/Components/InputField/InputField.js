@@ -1,5 +1,5 @@
+import React from "react";
 import styles from "./InputField.module.css";
-
 const InputField = (props) => {
   const setlogoVisibility = props.setlogoVisibility;
   const inputHandler = (e) => {
@@ -37,4 +37,4 @@ const InputField = (props) => {
   );
 };
 
-export default InputField;
+export default React.memo(InputField);

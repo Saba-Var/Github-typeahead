@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import UsersList from "./UsersList";
 import NotFound from "./NotFound";
@@ -8,7 +9,6 @@ const Users = (props) => {
   const [hasError, setError] = useState(false);
   const username = props.user.toLowerCase().trim();
   const [token, setToken] = useState("");
-
   useEffect(() => {
     async function getToken() {
       const response = await fetch(
@@ -87,4 +87,4 @@ const Users = (props) => {
     </>
   );
 };
-export default Users;
+export default React.memo(Users);
