@@ -12,7 +12,6 @@ const UsersList = (props) => {
   } ${listLength === 4 && styles["user__length4"]} ${
     listLength === 5 && styles["user__length5"]
   } ${listLength > 5 && styles["user__length__other"]}`;
-
   useEffect(() => {
     setList(
       <ul className={listStyle} id="ul">

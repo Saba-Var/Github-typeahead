@@ -51,10 +51,8 @@ const Users = (props) => {
             props.setLoading(false);
             data.total_count === 0 && props.setFound(false);
           } catch (error) {
-            if (error) {
-              props.setLoading(false);
-              setError(true);
-            }
+            props.setLoading(false);
+            setError(true);
           }
         }
         fetchGithubAPI();
