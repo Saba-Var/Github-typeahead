@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useState, useEffect } from "react";
-import UsersList from "./UsersList";
-import NotFound from "./NotFound";
-import Error from "../Error/Error";
+const UsersList = React.lazy(() => import("./UsersList"));
+const Error = React.lazy(() => import("../Error/Error"));
+const NotFound = React.lazy(() => import("./NotFound"));
 
 const Users = (props) => {
   const [usersData, setUsersData] = useState([]);
@@ -70,18 +70,21 @@ const Users = (props) => {
 
   return (
     <>
-      {username !== "" &&
-        props.found &&
-        !hasError &&
-        props.usersListVisibility && (
-          <UsersList
-            usersData={usersData}
-            usersCount={usersData}
-            username={username}
-          />
-        )}
-      {!props.found && !hasError && <NotFound username={username} />}
-      {hasError && <Error />}
+      <Suspense fallback={<></>}>
+        {username !== "" &&
+          props.found &&
+          !hasError &&
+          props.usersListVisibility && (
+            <UsersList
+              usersData={usersData}
+              usersCount={usersData}
+              username={username}
+            />
+          )}
+
+        {!props.found && !hasError && <NotFound username={username} />}
+        {hasError && <Error />}
+      </Suspense>
     </>
   );
 };

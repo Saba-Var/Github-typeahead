@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import GithubLogo from "../GithubLogo/GithubLogo";
 import InputField from "../InputField/InputField";
 import closeSVG from "../../assets/close_svg.svg";
-import spinner from "../../assets/Rolling-1s-200px.svg";
+import spinner from "../../assets/spinner.svg";
 import styles from "./Typeahead.module.css";
 import Users from "../Users/Users";
 
