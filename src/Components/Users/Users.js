@@ -11,7 +11,7 @@ const Users = (props) => {
   useEffect(() => {
     async function getToken() {
       const response = await fetch(
-        "https://github-token-default-rtdb.europe-west1.firebasedatabase.app/token.json"
+        "https://typeahead-673d0-default-rtdb.europe-west1.firebasedatabase.app/token.json"
       );
       const data = await response.json();
       setToken(data.token);
